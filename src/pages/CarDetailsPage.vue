@@ -32,6 +32,7 @@ import Pop from '../utils/Pop.js';
 import { carsService } from '../services/CarsService.js';
 import { useRoute, useRouter } from 'vue-router';
 import { logger } from '../utils/Logger.js';
+
 export default {
   // REVIEW PAGES NEVER TAKE IN PROPS
   setup(){

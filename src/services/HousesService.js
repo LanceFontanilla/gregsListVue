@@ -13,7 +13,7 @@ class HousesService {
     }
     async getHouseById(houseId) {
         AppState.activeHouse = null
-        const res = await api.get(`api.houses/${houseId}`)
+        const res = await api.get(`api/houses/${houseId}`)
         logger.log('one house', res.data)
         AppState.activeHouse = new House(res.data)
     }

@@ -1,15 +1,21 @@
 <template>
     <div class="container">
-        <section class="row justify-content-center">
+        <section v-if="activeHouse" class="row justify-content-center">
             <div class="col-12">
                 <img class="img-fluid" :src="activeHouse.imgUrl" alt="">
             </div>
-        <div class="mt-5 p-2">
-            ${{ house.price }} || {{ house.bedrooms }} Beds || {{ house.bathrooms }} Bath 
+        <div class="mt-3 p-2">
+            ${{ activeHouse.price }} || {{ activeHouse.bedrooms }} Beds || {{ activeHouse.bathrooms }} Bath 
         </div>
         <div class="p-2">
-            {{ house.levels }} Levels || Built: {{ house.year }}
+            {{ activeHouse.levels }} Levels || Built: {{ activeHouse.year }}
         </div>
+        <div class="p-2">
+        {{ activeHouse.description }}
+        </div>
+        </section>
+        <section v-else>
+    <i class="mdi mdi-loading mdi-spin text-primary fs-2">loading</i>
         </section>
     </div>
 </template>
@@ -29,7 +35,7 @@ setup() {
     const router = useRouter()
     onMounted(()=>{
         getHouseById()
-        logger.logger(route)
+        logger.log(route)
     })
     async function getHouseById(){
         try {
@@ -40,7 +46,7 @@ setup() {
         }
     }
   return {
-    activeHouse: computed(()=> AppState.activeHouse)
+    activeHouse: computed(()=> AppState.activeHouse),
   };
 },
 };
