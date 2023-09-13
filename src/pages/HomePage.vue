@@ -8,7 +8,10 @@
       <router-link :to="{name: 'Cars'}">
         Cars 🚗
       </router-link>
-      <button class="btn btn-primary" @click="goToCarsPage">Cars link via Code</button>
+      <!-- <button class="btn btn-primary" @click="goToCarsPage">Cars link via Code</button> -->
+      <router-link :to="{ name: 'Houses' }">
+        Houses <span class="mdi mdi-home"></span>
+      </router-link>
     </div>
   </div>
 </template>
