@@ -23,7 +23,7 @@
     </div>
     <div class="mb-3 col-12">
       <label for="car-description">Description</label>
-      <textarea v-model="carData.description" id="car-description" class="form-control" placeholder="must be url" ></textarea>
+      <textarea v-model="carData.description" id="car-description" class="form-control" placeholder="Description" ></textarea>
     </div>
     <div class="mb-3 col-12">
       <button class="btn btn-primary" title="submit car data to database">Submit</button>

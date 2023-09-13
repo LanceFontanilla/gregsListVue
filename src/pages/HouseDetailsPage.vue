@@ -47,6 +47,7 @@ setup() {
     }
   return {
     activeHouse: computed(()=> AppState.activeHouse),
+    account: computed(() => AppState.account),
   };
 },
 };
