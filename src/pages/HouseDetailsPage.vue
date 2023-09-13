@@ -13,6 +13,15 @@
         <div class="p-2">
         {{ activeHouse.description }}
         </div>
+
+        <div class="col-6 text-end">
+        <span>{{ activeHouse.creatorName }}</span>
+        <img class="profile-pic" :src="activeHouse.creator.picture" alt="">
+        </div>
+
+        <div>
+            <button v-if="activeHouse.creatorId == account.id" @click="deleteHouse" class="btn btn-danger">Delete Listing <i class="mdi mdi-delete-forever"></i></button>
+        </div>
         </section>
         <section v-else>
     <i class="mdi mdi-loading mdi-spin text-primary fs-2">loading</i>
@@ -48,11 +57,29 @@ setup() {
   return {
     activeHouse: computed(()=> AppState.activeHouse),
     account: computed(() => AppState.account),
+    async deleteHouse(){
+        try {
+            if(await Pop.confirm('Are you sure you want do delete this listing?')){
+                const houseId = AppState.activeHouse.id
+                await housesService.removeHouse(houseId)
+                router.push({name: 'Houses'})
+                Pop.success('House Removed')
+            }
+        } catch (error) {
+            Pop.error(error)
+        }
+    }
   };
 },
 };
 </script>
 
 
-<style>
+<style lang="scss" scoped>
+.profile-pic{
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+  object-position: center;
+}
 </style>
