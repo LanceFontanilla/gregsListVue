@@ -16,7 +16,7 @@
 
         <div class="col-6 text-end">
         <span>{{ activeHouse.creatorName }}</span>
-        <img class="profile-pic" :src="activeHouse.creator.picture" alt="">
+        <img class="profile-pic" :src="activeHouse.creatorPicture" alt="">
         </div>
 
         <div>

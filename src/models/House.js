@@ -11,6 +11,6 @@ export class House {
         this.description = data.description
         this.creatorId = data.creatorId
         this.creatorName = data.creator.name
-        this.creatorPicture = data.creator.creatorPicture
+        this.creatorPicture = data.creator.picture
     }
 }
